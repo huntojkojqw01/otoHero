@@ -19,14 +19,58 @@ HotKeySet("^7", "opencom")
 HotKeySet("^8", "opencom")
 HotKeySet("^9", "opencom")
 HotKeySet("^0", "opencom")
-Opt("SendKeyDelay", 50) ; milliseconds
+HotKeySet("!1", "opencom1")
+HotKeySet("!2", "opencom1")
+HotKeySet("!3", "opencom1")
+HotKeySet("!4", "opencom1")
+HotKeySet("!5", "opencom1")
+HotKeySet("!6", "opencom1")
+HotKeySet("!7", "opencom1")
+HotKeySet("!8", "opencom1")
+HotKeySet("!9", "opencom1")
+HotKeySet("!0", "opencom1")
+HotKeySet("{F4}","enterpass")
+Opt("SendKeyDelay", 10) ; milliseconds
 
-While 1
-    Sleep(100)
-WEnd
 
+Func enterpass()
+   Send("manager{ENTER}")
+   EndFunc
+Func opencom1()
+   Sleep(300)
+   Send("{ALT}")
+   Sleep(100)
+   Send("!u")
+   Sleep(100)
+   Send("u")
+   Sleep(100)
+   Send("{HOME}")
+   Switch @HotKeyPressed
+	  Case "!1"
+		 Send("{DOWN}")
+	  Case "!2"
+		 Send("{DOWN}{DOWN}")
+	  Case "!3"
+		 Send("{DOWN}{DOWN}{DOWN}")
+	  Case "!4"
+		 Send("{DOWN 4}")
+	  Case "!5"
+		 Send("{DOWN 5}")
+	  Case "!6"
+		 Send("{DOWN 6}")
+	  Case "!7"
+		 Send("{DOWN 7}")
+	  Case "!8"
+		 Send("{DOWN 8}")
+	  Case "!9"
+		 Send("{DOWN 9}")
+	  Case "!0"
+		 Send("{DOWN 10}")
+    EndSwitch
+	Send("{ENTER}{TAB}manager{ENTER}")
+EndFunc   ;==>opencom1
 Func opencom()
-   Sleep(500)
+   Sleep(300)
    Send("{RCTRL}")
    Sleep(100)
    Send("!r")
@@ -59,9 +103,6 @@ Func opencom()
 	Send("{ENTER}{TAB}manager{ENTER}")
 EndFunc   ;==>opencom
 
-While 1
-    Sleep(100)
-WEnd
 Func ver()
    MouseClick($MOUSE_CLICK_RIGHT)
    Sleep(100)
@@ -98,4 +139,7 @@ Func ShowMessage()
 	Send("manager")
 	Sleep(100)
 	Send("{F3}")
-	EndFunc
+ EndFunc
+ While 1
+    Sleep(100)
+WEnd
